@@ -39,7 +39,7 @@ void buildVMVXTransformPassPipeline(OpPassManager &passManager) {
 
 void createVMVXTransformPassPipeline() {
   PassPipelineRegistration<> transformPassPipeline(
-      "iree-vmla-transformation-pipeline",
+      "iree-vmvx-transformation-pipeline",
       "Runs the full IREE VMVX dialect transformation pipeline",
       [](OpPassManager &passManager) {
         buildVMVXTransformPassPipeline(passManager);
