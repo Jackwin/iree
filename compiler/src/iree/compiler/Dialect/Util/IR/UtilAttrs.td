@@ -34,6 +34,13 @@ def Util_ByteRangeAttr : AttrDef<Util_Dialect, "ByteRange", []> {
 
 def Util_CompositeAttr : AttrDef<Util_Dialect, "Composite", [
   SubElementAttrInterface,
+  //NOTE: chunjie Declare the attr interface serializeToBuffer(), generated in UtilAttrs.h.inc
+  // Where is the impl? 
+  // LogicalResult serializeToBuffer(llvm::support::endianness endian, ArrayRef<char> buffer) const;
+  // LogicalResult serializeToStream(llvm::support::endianness endian, llvm::raw_ostream &os) const;
+  // 
+  //NOTE: chunjie indicate that the interface should be generated in the header file
+  // The definition in OpBase.td
   DeclareAttrInterfaceMethods<Util_SerializableAttrInterface, [
     "serializeToBuffer",
     "serializeToStream",
@@ -57,6 +64,7 @@ def Util_CompositeAttr : AttrDef<Util_Dialect, "Composite", [
     AttrParameter<"ArrayAttr", "">:$values
   );
 
+//NOTE: chunjie no specific builder impl
   let builders = [
     AttrBuilder<(ins
       "ArrayRef<Attribute>":$values

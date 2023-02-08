@@ -26,7 +26,8 @@ namespace mlir {
 namespace iree_compiler {
 namespace IREE {
 namespace VM {
-
+//NOTE:(chunjie) State the type storage here, which will be used in the type definition
+// The TypeBase, type storage is required in template parameter 
 namespace detail {
 struct ListTypeStorage;
 struct RefTypeStorage;
@@ -39,6 +40,8 @@ class BufferType : public Type::TypeBase<BufferType, Type, TypeStorage> {
 };
 
 /// A list containing an optional element type.
+
+//NOTE: chunjie similar to the tablegen? name, mnomonic and traits?
 class ListType
     : public Type::TypeBase<ListType, Type, detail::ListTypeStorage> {
  public:

@@ -58,6 +58,7 @@ iree_allocator_clone(iree_allocator_t allocator,
 IREE_API_EXPORT void iree_allocator_free(iree_allocator_t allocator,
                                          void* ptr) {
   if (ptr && allocator.ctl) {
+    //NOTE: chunjie execute the allocator free here
     iree_status_ignore(allocator.ctl(
         allocator.self, IREE_ALLOCATOR_COMMAND_FREE, /*params=*/NULL, &ptr));
   }

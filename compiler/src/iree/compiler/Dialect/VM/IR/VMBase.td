@@ -60,6 +60,7 @@ include "iree/compiler/Dialect/VM/IR/VMOpcodesF32.td"
 // Optional:
 include "iree/compiler/Dialect/VM/IR/VMOpcodesF64.td"
 
+//NOTE: chunjie encode is to serialize something?
 //===----------------------------------------------------------------------===//
 // Declarative encoding framework
 //===----------------------------------------------------------------------===//

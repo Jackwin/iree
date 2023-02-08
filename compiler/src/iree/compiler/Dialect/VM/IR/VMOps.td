@@ -37,7 +37,9 @@ class VM_PureOp<string mnemonic, list<Trait> traits = []> :
 
 def VM_ModuleOp : VM_Op<"module", [
     IsolatedFromAbove,
+    //NOTE: chunjie indicate the VM_ModuleOp must end up with the ModuleTerminatorOp
     SingleBlockImplicitTerminator<"IREE::VM::ModuleTerminatorOp">,
+    //NOTE: chunjjie NativeOpTrait is a subclass of OpTrait. Here define the Op trait class "SymbolTable"
     NativeOpTrait<"SymbolTable">,
     Symbol,
   ]> {
@@ -88,6 +90,7 @@ def VM_ModuleOp : VM_Op<"module", [
 
 def VM_ModuleTerminatorOp : VM_Op<"module_terminator", [
     HasParent<"IREE::VM::ModuleOp">,
+    //NOTE: chunjie Terminator to indicate the termination of module op expression.
     Terminator,
   ]> {
   let summary = [{terminator pseudo-op for the module op}];
@@ -139,6 +142,7 @@ def VM_FuncOp : VM_Op<"func", [
     }
 
     /// Returns the argument types of this function.
+    //NOTE: chunjie Get the function input types, stored in ArrayRef
     ArrayRef<Type> getArgumentTypes() { return getFunctionType().getInputs(); }
 
     /// Returns the result types of this function.
@@ -1161,6 +1165,7 @@ def VM_BufferAllocOp :
     operands attr-dict `:` type($result)
   }];
 
+  //NOTE: chunjie add the opcode
   let encoding = [
     VM_EncOpcode<VM_OPC_BufferAlloc>,
     VM_EncOperand<"length", 0>,

@@ -387,7 +387,7 @@ void InitializerOp::print(OpAsmPrinter &p) {
   p << " ";
   p.printRegion(getBody());
 }
-
+//NOTE: chunjie define in FunctionInterfaces.td
 Block *InitializerOp::addEntryBlock() {
   assert(empty() && "function already has an entry block");
   auto *entry = new Block();

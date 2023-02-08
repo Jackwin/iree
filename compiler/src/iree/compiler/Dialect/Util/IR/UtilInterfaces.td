@@ -918,7 +918,7 @@ def Util_SizeAwareOp : OpInterface<"SizeAwareOpInterface"> {
 //===----------------------------------------------------------------------===//
 // IREE::Util::ReferenceTypeInterface
 //===----------------------------------------------------------------------===//
-
+// NOTE: chunjie the generate class name is ReferenceTypeInterface 
 def Util_ReferenceType : TypeInterface<"ReferenceTypeInterface"> {
   let cppNamespace = "::mlir::iree_compiler::IREE::Util";
 

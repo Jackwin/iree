@@ -75,6 +75,7 @@ IREE_API_EXPORT iree_status_t iree_runtime_session_create_with_device(
   IREE_TRACE_ZONE_BEGIN(z0);
 
   // Allocate the session state.
+  //NOTE: chunjie malloc the session using host_allocator
   iree_runtime_session_t* session = NULL;
   IREE_RETURN_AND_END_ZONE_IF_ERROR(
       z0, iree_allocator_malloc(host_allocator, sizeof(*session),

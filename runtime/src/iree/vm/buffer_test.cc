@@ -26,6 +26,8 @@ struct VMBufferTest : public ::testing::Test {
 // initialization of a buffer.
 TEST_F(VMBufferTest, Initialize) {
   bool did_free = false;
+  // NOTE: chunjie test_allocator is an element in vm_buffer
+  // when deinitializing, test_allocator will execute the ctrl function: assign self = true
   iree_allocator_t test_allocator = {
       /*.self=*/&did_free,
       /*.ctl=*/

@@ -29,7 +29,9 @@ namespace VM {
 //===----------------------------------------------------------------------===//
 
 namespace detail {
-
+//NOTE: chunjie Define the TypeStorage
+// The definition is like the C++ coding, including operationand constructor.
+// In the typestorage, an allocator is needed to store the C++ type
 struct ListTypeStorage : public TypeStorage {
   ListTypeStorage(Type elementType) : elementType(elementType) {}
 

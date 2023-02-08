@@ -17,6 +17,7 @@ include "iree/compiler/Dialect/Util/IR/UtilInterfaces.td"
 def Util_BufferType : TypeDef<Util_Dialect, "Buffer", [
   Util_ReferenceType,
   Util_SizeAwareType,
+  //NOTE: chunjie make a declaration of interface, and the impl locates at cpp file
   DeclareTypeInterfaceMethods<Util_GlobalType, [
     "isAccessStorageCompatible",
   ]>,
